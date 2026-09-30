@@ -1,0 +1,30 @@
+name: docker-bluff
+arch: amd64
+version: ${VERSION}
+release: 1
+maintainer: Roberto Ferranti <roberto@optionfactory.net>
+homepage: https://github.com/optionfactory/docker-heist
+license: MIT
+section: devel
+description: |-
+  docker run wrapper that fixes bind-mount UID/GID mismatches
+  Wraps a container's bind mounts in Linux idmapped mounts so the host user and
+  the container user each see the files as their own, at native speed, with no
+  bindfs/FUSE and no recursive chown. A developer tool for trusted,
+  single-tenant workstations, runnable only by the docker group.
+contents:
+  - src: ./docker-bluff
+    dst: /usr/bin/docker-bluff
+    file_info: {mode: 0755}
+  - src: ./docker-bluff.conf
+    dst: /usr/lib/tmpfiles.d/docker-bluff.conf
+    file_info: {mode: 0644}
+scripts:
+  postinstall: ./postinstall.sh
+  postremove: ./postremove.sh
+overrides:
+  deb:
+    depends: [libcap2-bin]
+    suggests: [docker-ce | docker.io | docker-engine, systemd]
+  rpm:
+    depends: [/usr/sbin/setcap, /usr/sbin/groupadd]

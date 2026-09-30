@@ -1,0 +1,18 @@
+name: pinch
+arch: amd64
+version: ${VERSION}
+release: 1
+maintainer: Roberto Ferranti <roberto@optionfactory.net>
+homepage: https://github.com/optionfactory/pinch
+license: MIT
+section: devel
+description: |-
+  Executable workflow manifest and process supervisor
+  A terminal-based process supervisor and developer workflow runner: a single
+  pinch.yaml supervises a project's local background daemons, Docker
+  namespaces and interactive TUI tasks.
+suggests: [docker-intrude, docker-bluff]
+contents:
+  - src: ./pinch
+    dst: /usr/bin/pinch
+    file_info: {mode: 0755}

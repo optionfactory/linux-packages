@@ -1,0 +1,18 @@
+name: docker-snitch
+arch: amd64
+version: ${VERSION}
+release: 1
+maintainer: Roberto Ferranti <roberto@optionfactory.net>
+homepage: https://github.com/optionfactory/docker-heist
+license: MIT
+section: utils
+description: |-
+  Relays a daemon's file-only logs to stderr, compacting them
+  Runs a command and relays whatever is appended to a set of files to stderr,
+  removing from the files what it has relayed, so daemons that insist on
+  writing logs to regular files reach "docker logs" without the files growing
+  forever.
+contents:
+  - src: ./docker-snitch
+    dst: /usr/bin/docker-snitch
+    file_info: {mode: 0755}

@@ -1,0 +1,26 @@
+name: docker-intrude
+arch: amd64
+version: ${VERSION}
+release: 1
+maintainer: Roberto Ferranti <roberto@optionfactory.net>
+homepage: https://github.com/optionfactory/docker-heist
+license: MIT
+section: devel
+description: |-
+  Runs a host command inside a specific Docker network's namespace
+  Lets host tools (psql, curl, a debugger, your app) reach container IPs and
+  service DNS names on a Docker network without being dockerized and without
+  publishing ports, still running as the invoking user. A developer tool for
+  trusted, single-tenant workstations, runnable only by the docker group.
+contents:
+  - src: ./docker-intrude
+    dst: /usr/bin/docker-intrude
+    file_info: {mode: 0755}
+scripts:
+  postinstall: ./postinstall.sh
+overrides:
+  deb:
+    depends: [libcap2-bin]
+    suggests: [docker-ce | docker.io | docker-engine]
+  rpm:
+    depends: [/usr/sbin/setcap, /usr/sbin/groupadd]
