@@ -84,4 +84,10 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=$base_url/key.asc
 EOF
+cat > "$site/index.html" <<'EOF'
+<!doctype html>
+<meta http-equiv="refresh" content="0; url=https://github.com/optionfactory/linux-packages#setup">
+<title>optionfactory packages</title>
+<a href="https://github.com/optionfactory/linux-packages#setup">Setup instructions</a>
+EOF
 touch "$site/.nojekyll"

@@ -68,7 +68,9 @@ curl -fsSL https://optionfactory.github.io/linux-packages/key.asc \
 ```dockerfile
 FROM debian:trixie
 ADD --chmod=644 https://optionfactory.github.io/linux-packages/key.asc /etc/apt/keyrings/optionfactory.asc
-RUN printf '%s\n' 'Types: deb' \
+RUN apt update \
+    && apt install -y --no-install-recommends ca-certificates \
+    && printf '%s\n' 'Types: deb' \
         'URIs: https://optionfactory.github.io/linux-packages/deb' \
         'Suites: stable' 'Components: main' \
         'Signed-By: /etc/apt/keyrings/optionfactory.asc' \
