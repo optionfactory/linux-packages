@@ -1,0 +1,28 @@
+name: optionfactory-posture
+arch: amd64
+version: ${VERSION}
+release: 1
+maintainer: Roberto Ferranti <roberto@optionfactory.net>
+homepage: https://github.com/optionfactory/optionfactory-posture
+license: MIT
+section: admin
+description: |-
+  Security posture of a workstation, reported hourly to a collector
+  Checks disk encryption, pending updates and reboots, firewall, published
+  Docker ports, sshd, journald and the screen lock, and posts the outcome to a
+  collector, queueing the reports while it is unreachable. Runs only once
+  /etc/optionfactory-posture/config sets POSTURE_COLLECTOR and POSTURE_TANG_URL.
+contents:
+  - src: ./optionfactory-posture
+    dst: /usr/bin/optionfactory-posture
+    file_info: {mode: 0755}
+  - src: ./optionfactory-posture.service
+    dst: /usr/lib/systemd/system/optionfactory-posture.service
+    file_info: {mode: 0644}
+  - src: ./optionfactory-posture.timer
+    dst: /usr/lib/systemd/system/optionfactory-posture.timer
+    file_info: {mode: 0644}
+scripts:
+  postinstall: ./postinstall.sh
+  preremove: ./preremove.sh
+  postremove: ./postremove.sh

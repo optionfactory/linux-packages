@@ -44,7 +44,7 @@ for dir in packages/*/; do
         cd "$stage"
         export VERSION="$version" SOURCE_DATE_EPOCH="$epoch"
         nfpm package -p deb -t "$site/deb/pool/main/" >/dev/null
-        nfpm package -p rpm -t "$site/rpm/" >/dev/null
+        [ -e deb-only ] || nfpm package -p rpm -t "$site/rpm/" >/dev/null
     )
     echo "built $name $version"
 done

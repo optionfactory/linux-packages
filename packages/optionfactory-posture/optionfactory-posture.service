@@ -1,0 +1,17 @@
+[Unit]
+Description=Security posture report
+Documentation=https://github.com/optionfactory/optionfactory-posture
+ConditionPathExists=/etc/optionfactory-posture/config
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/optionfactory-posture/config
+ExecStart=/usr/bin/optionfactory-posture report
+StateDirectory=optionfactory-posture
+StateDirectoryMode=0700
+# root, to read the LUKS headers and run sshd -T; the checks only read
+ProtectSystem=full
+ProtectHome=yes
+PrivateTmp=yes
+NoNewPrivileges=yes

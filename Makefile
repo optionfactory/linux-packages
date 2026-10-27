@@ -1,4 +1,4 @@
-SOURCES=optionfactory/docker-heist optionfactory/pinch
+SOURCES=optionfactory/docker-heist optionfactory/pinch optionfactory/optionfactory-posture
 GPG_KEY=9FE6CDC2B377ECF54D7E974580C79C8962B033BB
 BASE_URL=https://optionfactory.github.io/linux-packages
 SITE=target/site
