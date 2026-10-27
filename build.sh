@@ -34,12 +34,21 @@ done
 
 for dir in packages/*/; do
     name=$(basename "$dir")
-    bin=$(ls "$out"/src/*/"$name-linux-amd64-musl" 2>/dev/null) || die "no $name-linux-amd64-musl in the releases of $*"
-    read -r version epoch < "$(dirname "$bin")/release"
     stage=$out/stage/$name
     mkdir -p "$stage"
     cp -R "$dir". "$stage/"
-    cp "$bin" "$stage/$name"
+    if [ -e "$dir/upstream" ]; then
+        # someone else's release, without checksums of its own: pinned here, so an update is a reviewed commit
+        read -r repo version asset sha256 < "$dir/upstream"
+        gh release download "$version" --repo "$repo" --dir "$out/src/$name" --pattern "$asset"
+        echo "$sha256  $out/src/$name/$asset" | sha256sum --quiet --check || die "$repo $version: checksum mismatch"
+        tar xzf "$out/src/$name/$asset" -C "$stage"
+        epoch=$(date -d "$(gh release view "$version" --repo "$repo" --json publishedAt --jq .publishedAt)" +%s)
+    else
+        bin=$(ls "$out"/src/*/"$name-linux-amd64-musl" 2>/dev/null) || die "no $name-linux-amd64-musl in the releases of $*"
+        read -r version epoch < "$(dirname "$bin")/release"
+        cp "$bin" "$stage/$name"
+    fi
     (
         cd "$stage"
         export VERSION="$version" SOURCE_DATE_EPOCH="$epoch"

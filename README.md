@@ -97,13 +97,16 @@ Updates arrive with the usual `apt upgrade`, `dnf upgrade` or `zypper update`.
 | `docker-bluff`, `docker-intrude`, `docker-snitch` | [docker-heist](https://github.com/optionfactory/docker-heist) |
 | `pinch` | [pinch](https://github.com/optionfactory/pinch) |
 | `optionfactory-posture` (Debian and Ubuntu only) | [optionfactory-posture](https://github.com/optionfactory/optionfactory-posture) |
+| `rbw` | [doy/rbw](https://github.com/doy/rbw), upstream release binaries repackaged |
 
 ## Publishing
 
 Packages are built from the latest GitHub release of each repository in
 `SOURCES` (see the Makefile): each `packages/<name>/` becomes a `.deb` and an
 `.rpm` of the release asset `<name>-linux-amd64-musl`, checked against the
-release's `SHA256SUMS`; only a `.deb` when the directory has a `deb-only` file. After releasing any of them, rebuild and publish
+release's `SHA256SUMS`; only a `.deb` when the directory has a `deb-only` file.
+Packages of someone else's tools have an `upstream` file instead (`<owner/repo> <version> <asset> <sha256>`):
+that release, pinned, so an update is a reviewed commit that changes the version and the hash. After releasing any of them, rebuild and publish
 everything with:
 
 ```bash

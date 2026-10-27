@@ -1,0 +1,36 @@
+name: rbw
+arch: amd64
+version: ${VERSION}
+release: 1
+maintainer: Roberto Ferranti <roberto@optionfactory.net>
+homepage: https://github.com/doy/rbw
+license: MIT
+section: utils
+description: |-
+  Unofficial Bitwarden command line client
+  Reads the vault of a Bitwarden or Vaultwarden server from the command line.
+  rbw-agent keeps the unlocked keys in memory until the lock timeout, like
+  ssh-agent, so the master password is asked once, through pinentry.
+  Upstream release binaries, repackaged.
+depends: [pinentry]
+contents:
+  - src: ./rbw
+    dst: /usr/bin/rbw
+    file_info: {mode: 0755}
+  - src: ./rbw-agent
+    dst: /usr/bin/rbw-agent
+    file_info: {mode: 0755}
+  - src: ./completion/bash
+    dst: /usr/share/bash-completion/completions/rbw
+    file_info: {mode: 0644}
+  - src: ./completion/fish
+    dst: /usr/share/fish/vendor_completions.d/rbw.fish
+    file_info: {mode: 0644}
+  - src: ./completion/zsh
+    dst: /usr/share/zsh/vendor-completions/_rbw
+    file_info: {mode: 0644}
+    packager: deb
+  - src: ./completion/zsh
+    dst: /usr/share/zsh/site-functions/_rbw
+    file_info: {mode: 0644}
+    packager: rpm
