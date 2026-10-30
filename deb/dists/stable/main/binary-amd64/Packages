@@ -1,0 +1,125 @@
+Package: docker-bluff
+Architecture: amd64
+Version: 1.1.1-1
+Priority: optional
+Section: devel
+Maintainer: Roberto Ferranti <roberto@optionfactory.net>
+Installed-Size: 548
+Depends: libcap2-bin
+Suggests: docker-ce | docker.io | docker-engine, systemd
+Filename: pool/main/docker-bluff_1.1.1-1_amd64.deb
+Size: 295942
+MD5sum: c61977baf6eb520e00e62a81521a53ed
+SHA1: afd7ebf9f0d4eb10f2db73ede51f4d18b862c7f3
+SHA256: f8520193e053c50be82f8cac38de41e0b58d324e2321be56e5ee193b958b683e
+SHA512: 61351de6c7b8406f72db9cad4de3d321d971931c281da86ef0c192ee90229fcef81f0325b93dc05cd196ff8fd6006ef66cf5c59a63753bf2f330003a82fff1bf
+Homepage: https://github.com/optionfactory/docker-heist
+Description: docker run wrapper that fixes bind-mount UID/GID mismatches
+ Wraps a container's bind mounts in Linux idmapped mounts so the host user and
+ the container user each see the files as their own, at native speed, with no
+ bindfs/FUSE and no recursive chown. A developer tool for trusted,
+ single-tenant workstations, runnable only by the docker group.
+
+Package: docker-intrude
+Architecture: amd64
+Version: 1.1.1-1
+Priority: optional
+Section: devel
+Maintainer: Roberto Ferranti <roberto@optionfactory.net>
+Installed-Size: 476
+Depends: libcap2-bin
+Suggests: docker-ce | docker.io | docker-engine
+Filename: pool/main/docker-intrude_1.1.1-1_amd64.deb
+Size: 255132
+MD5sum: c87633092294dba14fa298ecfb77c9d8
+SHA1: 12351ed2d5f0d6d0035f8e3de2f213c939eb1829
+SHA256: 709285d0bb6fff3b9af1f3c00a54627bdf9eacf59950edd952cba4ec75137fb2
+SHA512: 59845b78110dfe284b64566164d7258666c2fca16a31e07ce8c6470f85d6fb9104f0ab8c2bd905b220f42da80af497ed6121f8dfc079593d426eac03db347572
+Homepage: https://github.com/optionfactory/docker-heist
+Description: Runs a host command inside a specific Docker network's namespace
+ Lets host tools (psql, curl, a debugger, your app) reach container IPs and
+ service DNS names on a Docker network without being dockerized and without
+ publishing ports, still running as the invoking user. A developer tool for
+ trusted, single-tenant workstations, runnable only by the docker group.
+
+Package: docker-snitch
+Architecture: amd64
+Version: 1.1.1-1
+Priority: optional
+Section: utils
+Maintainer: Roberto Ferranti <roberto@optionfactory.net>
+Installed-Size: 452
+Filename: pool/main/docker-snitch_1.1.1-1_amd64.deb
+Size: 240622
+MD5sum: 52539853878e1d174a0910c6df6f03ec
+SHA1: acfc36def553916a35256a5f343f25297cadbaa0
+SHA256: 4471bce2f0561beca8854fc8cf090af920e511f718c3406b85d2e972eaa43653
+SHA512: 3dec6eb757694898e357f483d05c7688cc5243d1ae45b57cb93f804d62ddb5cc67bd37676570f9c393b73a5b48b8d9286842863ff11aebaf4779d79b0bee31a8
+Homepage: https://github.com/optionfactory/docker-heist
+Description: Relays a daemon's file-only logs to stderr, compacting them
+ Runs a command and relays whatever is appended to a set of files to stderr,
+ removing from the files what it has relayed, so daemons that insist on
+ writing logs to regular files reach "docker logs" without the files growing
+ forever.
+
+Package: optionfactory-posture
+Architecture: amd64
+Version: 0.1.0-1
+Priority: optional
+Section: admin
+Maintainer: Roberto Ferranti <roberto@optionfactory.net>
+Installed-Size: 5819
+Filename: pool/main/optionfactory-posture_0.1.0-1_amd64.deb
+Size: 2514380
+MD5sum: 1fd1308a6d7bf137d1d111b9e854aee4
+SHA1: da65aa38661ffa4153482bc599130224d93857da
+SHA256: 1ce6a8664aeaa4c5653f27c10a92d4fab0c19e39b493ccb0950b9f27f36aeed0
+SHA512: e1f1700fcc43685a0353a0a333a17b7b7c39c05c026776a3a52409e15feed1ca1e0c32e9b342bb5e15471e20ba6404713d8dbd6ae847b59097340a128bfe55d1
+Homepage: https://github.com/optionfactory/optionfactory-posture
+Description: Security posture of a workstation, reported hourly to a collector
+ Checks disk encryption, pending updates and reboots, firewall, published
+ Docker ports, sshd, journald and the screen lock, and posts the outcome to a
+ collector, queueing the reports while it is unreachable. Runs only once
+ /etc/optionfactory-posture/config sets POSTURE_COLLECTOR and POSTURE_TANG_URL.
+
+Package: pinch
+Architecture: amd64
+Version: 1.1.1-1
+Priority: optional
+Section: devel
+Maintainer: Roberto Ferranti <roberto@optionfactory.net>
+Installed-Size: 5880
+Suggests: docker-intrude, docker-bluff
+Filename: pool/main/pinch_1.1.1-1_amd64.deb
+Size: 2370498
+MD5sum: 7f3885b4a12c1f9fbab435ef636cb74f
+SHA1: dc019a251c3254d93b79e4528e8f91d6d705eecf
+SHA256: b04940e361e1b7981a55df7f840fa928555ca838225a304293e5810a631f7f08
+SHA512: 5e299ed6fd955828e68ad231cd533612fcd4b45c20f1957d0fc7e6ed5415ce99352563636e189e0ac58b63e38ed4bc29f0a2b38555994da066001c627ef8a39b
+Homepage: https://github.com/optionfactory/pinch
+Description: Executable workflow manifest and process supervisor
+ A terminal-based process supervisor and developer workflow runner: a single
+ pinch.yaml supervises a project's local background daemons, Docker
+ namespaces and interactive TUI tasks.
+
+Package: rbw
+Architecture: amd64
+Version: 1.15.0-1
+Priority: optional
+Section: utils
+Maintainer: Roberto Ferranti <roberto@optionfactory.net>
+Installed-Size: 17211
+Depends: pinentry
+Filename: pool/main/rbw_1.15.0-1_amd64.deb
+Size: 7339290
+MD5sum: 604bcd112c232ec175bde10a61451d57
+SHA1: 575d284c52476bf669bd47a9a43c081a0cfb38f2
+SHA256: 168999ebb7cc807ab83b97c4231cdacf16f276322dff9882c5fd10925187cace
+SHA512: 55026cced97a03f28aa1e87c8e6b4cd528ea54177dc1e94ee999ff2134993626edd5ccdb345c4ad64acfb5d585c1166a24d5e3571185a482e1879e4657cde79e
+Homepage: https://github.com/doy/rbw
+Description: Unofficial Bitwarden command line client
+ Reads the vault of a Bitwarden or Vaultwarden server from the command line.
+ rbw-agent keeps the unlocked keys in memory until the lock timeout, like
+ ssh-agent, so the master password is asked once, through pinentry.
+ Upstream release binaries, repackaged.
+
