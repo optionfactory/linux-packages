@@ -1,0 +1,17 @@
+name: optionfactory-hooks
+arch: amd64
+version: ${VERSION}
+release: 1
+maintainer: Roberto Ferranti <roberto@optionfactory.net>
+homepage: https://github.com/optionfactory/optionfactory-hooks
+license: MIT
+section: net
+description: |-
+  Events of GitHub, ClickUp and scripts posted to Matrix rooms
+  An appservice of a Matrix homeserver: each source posts as its own bot, rooms
+  subscribe with commands, scripts send through per-room hook tokens. The
+  binary only: the service, its user and its settings are up to the server.
+contents:
+  - src: ./optionfactory-hooks
+    dst: /usr/bin/optionfactory-hooks
+    file_info: {mode: 0755}

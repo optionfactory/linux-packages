@@ -97,6 +97,7 @@ Updates arrive with the usual `apt upgrade`, `dnf upgrade` or `zypper update`.
 | `docker-bluff`, `docker-intrude`, `docker-snitch` | [docker-heist](https://github.com/optionfactory/docker-heist) |
 | `pinch` | [pinch](https://github.com/optionfactory/pinch) |
 | `optionfactory-posture` (Debian and Ubuntu only) | [optionfactory-posture](https://github.com/optionfactory/optionfactory-posture) |
+| `optionfactory-hooks` (Debian and Ubuntu only) | [optionfactory-hooks](https://github.com/optionfactory/optionfactory-hooks) |
 | `rbw` | [doy/rbw](https://github.com/doy/rbw), upstream release binaries repackaged |
 
 ## Publishing
