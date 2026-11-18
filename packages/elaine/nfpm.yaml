@@ -1,0 +1,19 @@
+name: elaine
+arch: amd64
+version: ${VERSION}
+release: 1
+maintainer: Roberto Ferranti <roberto@optionfactory.net>
+homepage: https://github.com/optionfactory/elaine
+license: MIT
+section: devel
+description: |-
+  Governance, vulnerabilities and outdated dependencies of GitHub repositories
+  Syncs the repositories of a GitHub organization, scans them for elaine.yaml
+  manifests, known vulnerabilities and outdated dependencies, and serves the
+  results on a dashboard. Scanning can run on another machine that pushes the
+  results to the dashboard. The binary only: the service, its user and its
+  settings are up to the server.
+contents:
+  - src: ./elaine
+    dst: /usr/bin/elaine
+    file_info: {mode: 0755}
