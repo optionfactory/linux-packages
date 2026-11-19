@@ -1,7 +1,7 @@
 name: optionfactory-posture
 arch: amd64
 version: ${VERSION}
-release: 2
+release: 1
 maintainer: Roberto Ferranti <roberto@optionfactory.net>
 homepage: https://github.com/optionfactory/optionfactory-posture
 license: MIT
