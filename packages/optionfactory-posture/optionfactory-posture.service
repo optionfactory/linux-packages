@@ -6,6 +6,9 @@ After=network-online.target
 
 [Service]
 Type=oneshot
+# the agent kills a command stuck for a minute; this stops a run stuck anywhere else, which would keep the next ones
+# from starting (oneshot services have no start timeout by default)
+TimeoutStartSec=30min
 EnvironmentFile=/etc/optionfactory-posture/config
 ExecStart=/usr/bin/optionfactory-posture report
 StateDirectory=optionfactory-posture

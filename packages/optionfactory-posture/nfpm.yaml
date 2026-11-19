@@ -8,9 +8,11 @@ license: MIT
 section: admin
 description: |-
   Security posture of a workstation, reported hourly to a collector
-  Checks disk encryption, pending updates and reboots, firewall, published
-  Docker ports, sshd, journald and the screen lock, and posts the outcome to a
-  collector, queueing the reports while it is unreachable. Runs only once
+  Checks disk encryption, pending updates and reboots, automatic updates,
+  firewall, published Docker ports, sshd, accounts without a password,
+  AppArmor, journald, clock synchronization, the screen lock and automatic
+  login, describes the hardware and the listening ports, and posts the outcome
+  to a collector, queueing the reports while it is unreachable. Runs only once
   /etc/optionfactory-posture/config sets POSTURE_COLLECTOR and POSTURE_TANG_URL.
 contents:
   - src: ./optionfactory-posture
