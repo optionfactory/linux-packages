@@ -17,7 +17,7 @@ clean:
 	-@rm -rf target
 
 deps:
-	@sudo apt install -y gh apt-utils createrepo-c rpm gnupg
+	@sudo apt install -y gh apt-utils createrepo-c rpm gnupg curl unzip
 	@command -v nfpm >/dev/null || { \
 		tmp=$$(mktemp -d); \
 		gh release download --repo goreleaser/nfpm --dir $$tmp --pattern '*_amd64.deb' --pattern checksums.txt \

@@ -1,0 +1,29 @@
+name: aws-cli
+arch: amd64
+version: ${VERSION}
+release: 1
+maintainer: Roberto Ferranti <roberto@optionfactory.net>
+homepage: https://github.com/aws/aws-cli
+license: Apache-2.0
+section: utils
+description: |-
+  AWS command line interface, version 2
+  The aws command for every AWS service, with the IAM Identity Center (SSO)
+  login. The official Linux build, repackaged: Ubuntu 24.04 and Mint 22 have no
+  awscli package, and Debian's stays at the version of the release.
+provides: [awscli]
+conflicts: [awscli]
+replaces: [awscli]
+contents:
+  - src: ./aws/dist/
+    dst: /usr/lib/aws-cli/
+    type: tree
+  - src: /usr/lib/aws-cli/aws
+    dst: /usr/bin/aws
+    type: symlink
+  - src: /usr/lib/aws-cli/aws_completer
+    dst: /usr/bin/aws_completer
+    type: symlink
+  - src: ./aws.bash-completion
+    dst: /usr/share/bash-completion/completions/aws
+    file_info: {mode: 0644}

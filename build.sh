@@ -11,7 +11,7 @@ cd "$(dirname "$0")"
 
 die() { echo "build: $*" >&2; exit 1; }
 
-for tool in gh nfpm apt-ftparchive createrepo_c rpmsign gpg; do
+for tool in gh nfpm apt-ftparchive createrepo_c rpmsign gpg curl unzip; do
     command -v "$tool" >/dev/null || die "missing $tool"
 done
 gpg --list-secret-keys "$key" >/dev/null 2>&1 || die "no secret key $key in the keyring"
@@ -44,6 +44,15 @@ for dir in packages/*/; do
         echo "$sha256  $out/src/$name/$asset" | sha256sum --quiet --check || die "$repo $version: checksum mismatch"
         tar xzf "$out/src/$name/$asset" -C "$stage"
         epoch=$(date -d "$(gh release view "$version" --repo "$repo" --json publishedAt --jq .publishedAt)" +%s)
+    elif [ -e "$dir/download" ]; then
+        # the same, for a zip served outside GitHub; the archive keeps the server's Last-Modified as its time
+        read -r version url sha256 < "$dir/download"
+        archive=$out/src/$name/$(basename "$url")
+        mkdir -p "$out/src/$name"
+        curl -fsSLR -o "$archive" "$url"
+        echo "$sha256  $archive" | sha256sum --quiet --check || die "$url: checksum mismatch"
+        unzip -q "$archive" -d "$stage"
+        epoch=$(stat -c %Y "$archive")
     else
         bin=$(ls "$out"/src/*/"$name-linux-amd64-musl" 2>/dev/null) || die "no $name-linux-amd64-musl in the releases of $*"
         read -r version epoch < "$(dirname "$bin")/release"
