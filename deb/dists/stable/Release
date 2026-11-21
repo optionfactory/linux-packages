@@ -1,0 +1,19 @@
+Architectures: amd64
+Codename: stable
+Components: main
+Date: Sat, 21 Nov 2026 14:09:21 +0000
+Label: optionfactory
+Origin: optionfactory
+Suite: stable
+MD5Sum:
+ 31ab2682353cc47c9326223785296272             8671 main/binary-amd64/Packages
+ 15d1a4bccb6e2d484d988861849186c6             3753 main/binary-amd64/Packages.gz
+SHA1:
+ 81210b9e70ad0c41105f18c29d328ac2ba94fff8             8671 main/binary-amd64/Packages
+ b4bfc37638cd02a977e51bcc6135a472011e9e57             3753 main/binary-amd64/Packages.gz
+SHA256:
+ bfcaeb53703182ab98633e29924abd6d34aa6f167f1233082f8929fc8c597455             8671 main/binary-amd64/Packages
+ 348a471d1ee3843192db6584d5266a974ad0fb48d2c499817d25a48c698f1a8c             3753 main/binary-amd64/Packages.gz
+SHA512:
+ 4c6f74f79d6e1dad0543904683965c499bd21a0d94da055121a69b4369be0cb1200750a8af11e14374e0fa906994275cb487e64741476c9821b39a7f1e55654c             8671 main/binary-amd64/Packages
+ 04bebe9e1d585eb429c1d8bef210aac056a45faf74767a5d36141d3981582c4282b901655924414afaf9d57d023b80928f2453727c8bfbac88286d90b374bf5d             3753 main/binary-amd64/Packages.gz
