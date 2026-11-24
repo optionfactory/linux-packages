@@ -1,0 +1,29 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Architectures: amd64
+Codename: stable
+Components: main
+Date: Tue, 24 Nov 2026 22:06:03 +0000
+Label: optionfactory
+Origin: optionfactory
+Suite: stable
+MD5Sum:
+ 737320b27e15ac14f076abf997e01940             8671 main/binary-amd64/Packages
+ 1af55b8abe01ebbd0b950c81db469ced             3751 main/binary-amd64/Packages.gz
+SHA1:
+ 4f4d6479c2073e326e98bffb52fee82bf50fabfe             8671 main/binary-amd64/Packages
+ db1a90d7f5b8850b563a4a1042b0f896e090d656             3751 main/binary-amd64/Packages.gz
+SHA256:
+ 374df37a9dea62a451c195c5b375aaf66ba51091d05d6af120975a2ffd31d959             8671 main/binary-amd64/Packages
+ 6ed452894e73a8f52fb521d719ed448ce8bf53651350b1b3584e249f662a6dff             3751 main/binary-amd64/Packages.gz
+SHA512:
+ f2272ce6e0da846e7fd6e802b9c56ce60da99d0033bedaac24f30973faa8ab12d346a6f385e90ace5d7f990c8cb2b7c44692823c1b372f4742f583459c3c8f53             8671 main/binary-amd64/Packages
+ 3aa95700aee24900e018434e071b6726ff350f510657452427f8da6fec9ea57db28b0993da8fb95ca5d5f2c7186324ac90cf8995fbef8233f4627639c575e4db             3751 main/binary-amd64/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSf5s3Cs3fs9U1+l0WAx5yJYrAzuwUCawYKSwAKCRCAx5yJYrAz
+u8SNAP9xJrd7ksBwOMYPUdXaYcEZ/uWj5lgQhjcCQLhVT6xTOwD/btjeTjn8LlSO
+bhLqv4lSFU1QWEtujkbde7QIvjCSJw0=
+=pZga
+-----END PGP SIGNATURE-----
